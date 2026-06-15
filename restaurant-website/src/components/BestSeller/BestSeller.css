@@ -1,0 +1,214 @@
+.best-seller{
+  width: 100%;
+
+   padding: 20px 60px 40px;
+
+  background-color: #f8f9fb;
+
+}
+
+/* HEADING */
+
+.best-seller h1{
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 50px;
+
+  color: #111827;
+}
+
+/* CONTAINER */
+
+.product-container{
+  display: grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap: 35px;
+}
+
+/* CARD */
+
+.product-card{
+  background-color: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow:
+  0 4px 20px rgba(0,0,0,0.08);
+
+  transition: 0.3s ease;
+}
+
+.product-card:hover{
+  transform: translateY(-8px);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+
+.product-card img{
+  width: 100%;
+
+  height: 240px;
+
+  object-fit: cover;
+}
+
+/* INFO */
+
+.product-info{
+  padding: 22px;
+}
+
+/* TITLE */
+
+.product-info h2{
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 14px;
+}
+
+/* RATING */
+
+.rating{
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  background-color: #16a34a;
+
+  color: white;
+
+  padding: 6px 14px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+
+.product-info p{
+  color: #6b7280;
+
+  font-size: 15px;
+
+  line-height: 28px;
+
+  margin-bottom: 22px;
+}
+
+/* BOTTOM */
+
+.product-bottom{
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+/* PRICE */
+
+.price{
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: orange;
+}
+
+/* BUTTON */
+
+.add-btn{
+  padding: 12px 20px;
+
+  border: none;
+
+  background-color: #16a34a;
+
+  color: white;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.add-btn:hover{
+  background-color: #15803d;
+
+  transform: scale(1.05);
+}
+
+/* WISHLIST */
+
+.wishlist-btn{
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background-color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+  0 3px 10px rgba(0,0,0,0.15);
+}
+
+button{
+  margin-bottom:10px ;
+}
+
+.product-link{
+  text-decoration: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+  .best-seller{
+    padding: 60px 20px;
+  }
+
+  .best-seller h1{
+    font-size: 32px;
+  }
+
+}

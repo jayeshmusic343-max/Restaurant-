@@ -1,0 +1,227 @@
+.wishlist-page{
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 50px;
+
+  background-color: #f8f8f8;
+
+  transition: 0.3s;
+}
+
+/* DARK PAGE */
+
+.dark .wishlist-page{
+  background-color: #111827;
+}
+
+/* TITLE */
+
+.wishlist-page h1{
+  font-size: 45px;
+
+  margin-bottom: 40px;
+
+  color: black;
+
+  transition: 0.3s;
+}
+
+.dark .wishlist-page h1{
+  color: white;
+}
+
+/* EMPTY */
+
+.empty{
+  text-align: center;
+
+  color: gray;
+
+  margin-top: 80px;
+
+  font-size: 20px;
+}
+
+.dark .empty{
+  color: #cbd5e1;
+}
+
+/* CONTAINER */
+
+.wishlist-container{
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 30px;
+}
+
+/* CARD */
+
+.wishlist-card{
+  width: 280px;
+
+  background-color: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow:
+  0 3px 10px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+/* DARK CARD */
+
+.dark .wishlist-card{
+  background-color: #1f2937;
+
+  box-shadow:
+  0 3px 15px rgba(0,0,0,0.4);
+}
+
+/* IMAGE */
+
+.wishlist-card img{
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+/* NAME */
+
+.wishlist-card h3{
+  font-size: 24px;
+
+  margin: 15px;
+
+  color: black;
+
+  transition: 0.3s;
+}
+
+.dark .wishlist-card h3{
+  color: white;
+}
+
+/* PRICE */
+
+.wishlist-card p{
+  margin: 15px;
+
+  color: orange;
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+  width: calc(100% - 30px);
+
+  margin: 15px;
+
+  padding: 14px;
+
+  border: none;
+
+  background-color: #0f8a2d;
+
+  color: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.add-btn:hover{
+  opacity: 0.9;
+
+  transform: translateY(-2px);
+}
+
+/* REMOVE BUTTON */
+
+.remove-btn{
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background-color: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: 0.3s;
+}
+
+.remove-btn:hover{
+  transform: scale(1.1);
+}
+
+/* DARK REMOVE BUTTON */
+
+.dark .remove-btn{
+  background-color: #111827;
+
+  color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+  .wishlist-page{
+    padding: 25px;
+  }
+
+  .wishlist-page h1{
+    font-size: 34px;
+  }
+
+  .wishlist-container{
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 500px){
+
+  .wishlist-page{
+    padding: 20px;
+  }
+
+  .wishlist-card{
+    width: 100%;
+  }
+
+  .wishlist-page h1{
+    font-size: 28px;
+  }
+
+}

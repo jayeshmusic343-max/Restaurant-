@@ -1,0 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, sans-serif;
+}
+
+.light{
+  background-color: white;
+  color: black;
+
+  min-height: 100vh;
+}
+
+.dark{
+  background-color: #121212;
+  color: white;
+
+  min-height: 100vh;
+}
+
+/* GLOBAL */
+
+.dark .navbar{
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+.dark input{
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+}
+
+.dark .category-card,
+.dark .product-card,
+.dark .checkout-left,
+.dark .checkout-right{
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark .categories,
+.dark .promo,
+.dark .best-seller{
+  background-color: #121212;
+}
+
+/* ORDER DARK MODE */
+
+.dark .order{
+  background-color: #121212;
+}
+
+.dark .order-card{
+  background-color: #1e1e1e;
+}
+
+.dark .order-top h1,
+.dark .order-header h2{
+  color: white;
+}
+
+.dark .order-top p,
+.dark .order-header p{
+  color: #d1d5db;
+}
+
+.dark .delivery-box{
+  background-color: #2a2a2a;
+}
+
+.dark .status{
+  background-color: #333;
+
+  color: white;
+}
+
+body {
+  transition: 0.3s;
+}
+
+.dark {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.light {
+  background-color: white;
+  color: black;
+}
