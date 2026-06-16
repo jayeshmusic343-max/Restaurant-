@@ -1,40 +1,30 @@
 import { Link } from "react-router-dom";
 
-
+// 👈 यहाँ { darkMode } प्रोप रिसीव करना ज़रूरी है
 function Cart({
   cart,
   removeFromCart,
   increaseQuantity,
-  decreaseQuantity
+  decreaseQuantity,
+  darkMode 
 }) {
 
-  // Total Price
-  // TOTAL PRICE
-
-const totalPrice = cart.reduce(
-
-  (total, item) => {
-
-    const price = Number(
-      String(item.price).replace("₹", "")
-    );
-
+  const totalPrice = cart.reduce((total, item) => {
+    const price = Number(String(item.price).replace("₹", ""));
     return total + price * item.quantity;
-
-  },
-
-  0
-
-);
+  }, 0);
 
   return (
     <div
       style={{
         padding: "50px",
-        minHeight: "100vh"
+        minHeight: "100vh",
+        // 👈 डार्क मोड का बैकग्राउंड कलर
+        backgroundColor: darkMode ? "#0f0f0f" : "white",
+        color: darkMode ? "white" : "black",
+        transition: "0.3s"
       }}
     >
-
       <h1
         style={{
           textAlign: "center",
@@ -47,37 +37,25 @@ const totalPrice = cart.reduce(
       </h1>
 
       {cart.length === 0 ? (
-
-        <h2 style={{ textAlign: "center" }}>
-          Cart is Empty
-        </h2>
-
+        <h2 style={{ textAlign: "center" }}>Cart is Empty</h2>
       ) : (
-
         <>
           {cart.map((item) => (
-
             <div
               key={item.id}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                background: "#f5f5f5",
+                // 👈 कार्ड का कलर भी डार्क मोड के हिसाब से चेंज होगा
+                background: darkMode ? "#1e1e1e" : "#f5f5f5",
                 padding: "20px",
                 marginBottom: "20px",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                transition: "0.3s"
               }}
             >
-
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "20px"
-                }}
-              >
-
+              <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                 <img
                   src={item.image}
                   alt={item.name}
@@ -88,99 +66,40 @@ const totalPrice = cart.reduce(
                     borderRadius: "10px"
                   }}
                 />
-
                 <div>
                   <h2>{item.name}</h2>
-                  <p>{item.price}</p>
+                  <p style={{ color: "orange", fontWeight: "bold" }}>{item.price}</p>
                 </div>
-
               </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "15px"
-                }}
-              >
-
-                {/* Quantity Buttons */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "15px"
-                  }}
-                >
-
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "15px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
                   <button
                     onClick={() => decreaseQuantity(item.id)}
-                    style={{
-                      padding: "8px 15px",
-                      border: "none",
-                      background: "orange",
-                      color: "white",
-                      cursor: "pointer",
-                      borderRadius: "5px"
-                    }}
-                  >
-                    -
-                  </button>
-
+                    style={{ padding: "8px 15px", border: "none", background: "orange", color: "white", cursor: "pointer", borderRadius: "5px" }}
+                  >-</button>
                   <h3>{item.quantity}</h3>
-
                   <button
                     onClick={() => increaseQuantity(item.id)}
-                    style={{
-                      padding: "8px 15px",
-                      border: "none",
-                      background: "orange",
-                      color: "white",
-                      cursor: "pointer",
-                      borderRadius: "5px"
-                    }}
-                  >
-                    +
-                  </button>
-
+                    style={{ padding: "8px 15px", border: "none", background: "orange", color: "white", cursor: "pointer", borderRadius: "5px" }}
+                  >+</button>
                 </div>
 
-                {/* Remove Button */}
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  style={{
-                    padding: "12px 20px",
-                    border: "none",
-                    background: "red",
-                    color: "white",
-                    borderRadius: "5px",
-                    cursor: "pointer"
-                  }}
+                  style={{ padding: "12px 20px", border: "none", background: "red", color: "white", borderRadius: "5px", cursor: "pointer" }}
                 >
                   Remove
                 </button>
-
               </div>
-
             </div>
-
           ))}
 
-          {/* Total Price */}
-          <h2
-            style={{
-              textAlign: "right",
-              marginTop: "30px",
-              color: "orange"
-            }}
-          >
+          <h2 style={{ textAlign: "right", marginTop: "30px", color: "orange" }}>
             Total: ₹{totalPrice}
           </h2>
 
-          {/* Checkout Button */}
           <Link to="/checkout">
-
             <button
               style={{
                 marginTop: "20px",
@@ -195,17 +114,11 @@ const totalPrice = cart.reduce(
             >
               Proceed To Checkout
             </button>
-
           </Link>
-
         </>
-
       )}
-
     </div>
   );
 }
 
 export default Cart;
-
-

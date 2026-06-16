@@ -41,7 +41,7 @@ import Orders from "./pages/Orders";
 
 function App() {
   /* =========================
-     STATES
+      STATES
   ========================= */
 
   const [cart, setCart] = useState(() => {
@@ -59,7 +59,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   /* =========================
-     LOCAL STORAGE
+      LOCAL STORAGE
   ========================= */
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function App() {
   }, [wishlist]);
 
   /* =========================
-     CART FUNCTIONS
+      CART FUNCTIONS
   ========================= */
 
   const addToCart = (food) => {
@@ -149,7 +149,7 @@ function App() {
   };
 
   /* =========================
-     WISHLIST
+      WISHLIST
   ========================= */
 
   const toggleWishlist = (product) => {
@@ -226,134 +226,128 @@ function AppContent({
         />
       )}
 
-        {/* ROUTES */}
+      {/* ROUTES */}
+      <Routes>
 
-        <Routes>
+        {/* HOME - (यहाँ हमने darkMode और अन्य ज़रूरी props पास कर दिए हैं) */}
+        <Route
+          path="/"
+          element={
+            <Home
+              wishlist={wishlist}
+              toggleWishlist={toggleWishlist}
+              addToCart={addToCart}
+              searchQuery={searchTerm} 
+              darkMode={darkMode}
+            />
+          }
+        />
 
-          {/* HOME */}
+        {/* ABOUT */}
+        <Route
+          path="/about"
+          element={<AboutPage />}
+        />
 
-          <Route
-            path="/"
-            element={
-              <Home
-                wishlist={wishlist}
-                toggleWishlist={toggleWishlist}
-                addToCart={addToCart}
-              />
-            }
-          />
+        {/* SERVICES */}
+        <Route
+          path="/services"
+          element={<ServicesPage />}
+        />
 
-          {/* ABOUT */}
+        {/* CONTACT */}
+        <Route
+          path="/contact"
+          element={<ContactPage />}
+        />
 
-          <Route
-            path="/about"
-            element={<AboutPage />}
-          />
+        {/* AUTH */}
+        <Route
+          path="/auth"
+          element={<Auth />}
+        />
 
-          {/* SERVICES */}
+        {/* MENU */}
+        <Route
+          path="/menu"
+          element={
+            <Menu
+              addToCart={addToCart}
+              searchTerm={searchTerm}
+              darkMode={darkMode}
+            />
+          }
+        />
 
-          <Route
-            path="/services"
-            element={<ServicesPage />}
-          />
+        {/* CART */}
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              removeFromCart={removeFromCart}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+              darkMode={darkMode}
+            />
+          }
+        />
 
-          {/* CONTACT */}
+        {/* CHECKOUT */}
+        <Route
+          path="/checkout"
+          element={
+            <Checkout cart={cart} setCart={setCart} darkMode={darkMode} />
+          }
+        />
 
-          <Route
-            path="/contact"
-            element={<ContactPage />}
-          />
+        {/* WISHLIST */}
+        <Route
+          path="/wishlist"
+          element={
+            <Wishlist
+              wishlist={wishlist}
+              toggleWishlist={toggleWishlist}
+              addToCart={addToCart}
+              darkMode={darkMode}
+            />
+          }
+        />
 
-          {/* AUTH */}
+        {/* PRODUCT DETAILS - (यहाँ भी darkMode और addToCart पास कर दिया है) */}
+        <Route
+          path="/product-details"
+          element={<ProductDetails darkMode={darkMode} addToCart={addToCart} />}
+        />
 
-          <Route
-            path="/auth"
-            element={<Auth />}
-          />
+        {/* ADMIN */}
+        <Route
+          path="/admin-login"
+          element={<AdminLogin />}
+        />
 
-          {/* MENU */}
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route
-            path="/menu"
-            element={
-              <Menu
-                addToCart={addToCart}
-                searchTerm={searchTerm}
-              />
-            }
-          />
+        <Route
+          path="/admin-orders"
+          element={
+            <ProtectedRoute>
+              <AdminOrders />
+            </ProtectedRoute>
+          }
+        />
 
-          {/* CART */}
+        {/* ORDERS PAGE */}
+        <Route path="/orders" element={<Orders darkMode={darkMode} />} />
 
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={cart}
-                removeFromCart={removeFromCart}
-                increaseQuantity={increaseQuantity}
-                decreaseQuantity={decreaseQuantity}
-              />
-            }
-          />
-
-          {/* CHECKOUT */}
-
-          <Route
-            path="/checkout"
-            element={
-              <Checkout cart={cart} setCart={setCart} />
-            }
-          />
-
-          {/* WISHLIST */}
-
-          <Route
-            path="/wishlist"
-            element={
-              <Wishlist
-                wishlist={wishlist}
-                toggleWishlist={toggleWishlist}
-                addToCart={addToCart}
-              />
-            }
-          />
-
-          {/* PRODUCT DETAILS */}
-
-          <Route
-            path="/product-details"
-            element={<ProductDetails />}
-          />
-
-          {/* ADMIN */}
-
-          <Route
-            path="/admin-login"
-            element={<AdminLogin />}
-          />
-
-          <Route
-            path="/admin-dashboard"
-            element={
-              <ProtectedRoute>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/admin-orders"
-            element={
-              <ProtectedRoute>
-                <AdminOrders />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route path="/orders" element={<Orders />} />
-
-        </Routes>
+      </Routes>
 
       {/* FOOTER - Only on non-admin pages */}
       {!isAdminPage && <Contact />}
@@ -362,6 +356,7 @@ function AppContent({
       {!isAdminPage && (
         <MobileNav
           cartCount={cart.length}
+          darkMode={darkMode}
         />
       )}
 

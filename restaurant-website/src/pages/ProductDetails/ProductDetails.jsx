@@ -1,58 +1,61 @@
 import "./ProductDetails.css";
-
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-function ProductDetails() {
+function ProductDetails({ darkMode, addToCart }) {
+  const location = useLocation();
+  const [quantity, setQuantity] = useState(1);
 
-  const [quantity, setQuantity] =
-    useState(1);
+  const defaultProduct = {
+    id: 1,
+    name: "Cheese Pizza",
+    price: 299,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop",
+    desc: "Fresh and delicious cheese pizza prepared with premium quality ingredients and loaded with extra cheese for better taste.",
+  };
+
+  const product = location.state?.product || defaultProduct;
+
+  // 🛒 जब यूजर "Add To Cart" बटन दबाए
+  const handleAddToCart = () => {
+    // प्रोडक्ट के डेटा के साथ चुनी हुई क्वांटिटी (quantity) को भी कार्ट में भेजेंगे
+    const productWithQty = { ...product, quantity };
+    addToCart(productWithQty);
+  };
 
   return (
+    <div className={`product-details ${darkMode ? "dark" : "light"}`}>
 
-    <div className="product-details">
-
-      {/* LEFT */}
-
+      {/* LEFT - PRODUCT IMAGE */}
       <div className="details-left">
-
+        {/* 👈 अब यहाँ स्टेटिक इमेज नहीं, बल्कि क्लिक किए गए प्रोडक्ट की इमेज दिखेगी */}
         <img
-          src="https://images.unsplash.com/photo-1513104890138-7c749659a591"
-          alt=""
+          src={product.image}
+          alt={product.name}
         />
-
       </div>
 
-      {/* RIGHT */}
-
+      {/* RIGHT - PRODUCT INFO */}
       <div className="details-right">
-
-        <h1>Cheese Pizza</h1>
+        {/* 👈 अब यहाँ डायनामिक नाम दिखेगा */}
+        <h1>{product.name}</h1>
 
         {/* RATING */}
-
         <div className="details-rating">
-
-          ⭐ 4.5
-
+          ⭐ {product.rating}
         </div>
 
         {/* PRICE */}
-
-        <h2>₹299</h2>
+        <h2>₹{product.price}</h2>
 
         {/* DESCRIPTION */}
-
         <p>
-          Fresh and delicious cheese pizza
-          prepared with premium quality
-          ingredients and loaded with extra
-          cheese for better taste.
+          {product.desc || `Fresh and delicious ${product.name.toLowerCase()} prepared with high quality ingredients.`}
         </p>
 
-        {/* QUANTITY */}
-
+        {/* QUANTITY CONTROLLER */}
         <div className="quantity-box">
-
           <button
             onClick={() =>
               quantity > 1 &&
@@ -73,27 +76,23 @@ function ProductDetails() {
           >
             +
           </button>
-
         </div>
 
         {/* BUTTONS */}
-
         <div className="details-buttons">
-
-          <button className="cart-btn">
+          {/* 👈 यहाँ फंक्शन अटैच कर दिया जो आइटम को कार्ट में जोड़ देगा */}
+          <button className="cart-btn" onClick={handleAddToCart}>
             Add To Cart
           </button>
 
-          <button className="buy-btn">
+          <button className="buy-btn" onClick={() => alert("Proceeding to Checkout!")}>
             Buy Now
           </button>
-
         </div>
 
       </div>
 
     </div>
-
   );
 }
 
