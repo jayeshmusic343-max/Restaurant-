@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-/* पूरी वेबसाइट पर दाएँ-बाएँ का फालतू स्क्रॉल (Horizontal Scroll) जड़ से खत्म */
+/* पूरी वेबसाइट पर दाएँ-बाएँ का फालतू स्क्रॉल (Horizontal Scroll) जड़ से खत्म */
 html, body, #root {
   max-width: 100vw;
   overflow-x: hidden !important;
@@ -92,7 +92,7 @@ html, body, #root {
 /* 📱 मोबाइल स्क्रीन्स के लिए (Mobile Phones: 480px या उससे कम) */
 @media screen and (max-width: 480px) {
   
-  /* हेडिंग्स मोबाइल पर बहुत बड़ी होकर स्क्रीन से बाहर न भागें */
+  /* हेडिंग्स मोबाइल पर बहुत बड़ी होकर स्क्रीन से बाहर न भागें */
   h1, .hero h1, .product-details h1 {
     font-size: 1.8rem !important;
     line-height: 1.3 !important;
@@ -134,7 +134,7 @@ html, body, #root {
     gap: 20px !important;
   }
 
-  /* मोबाइल पर इमेजेस और टेक्स्ट डिब्बों को पूरी चौड़ाई (100% Width) देना */
+  /* मोबाइल पर इमेजेस और टेक्स्ट डिब्बों को पूरी चौड़ाई (100% Width) देना */
   .details-left, .details-right, 
   .hero-left, .hero-right,
   .checkout-left, .checkout-right,

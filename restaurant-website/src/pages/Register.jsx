@@ -6,15 +6,16 @@ function Register() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "#f5f5f5"
+        background: "#f5f5f5",
+        padding: 16
       }}
     >
 
       <form
         style={{
-          width: "400px",
+          width: "min(400px, 100%)",
           background: "white",
-          padding: "40px",
+          padding: "clamp(24px, 4vw, 40px)",
           borderRadius: "10px",
           boxShadow: "0 5px 10px rgba(0,0,0,0.1)"
         }}
@@ -23,8 +24,9 @@ function Register() {
         <h1
           style={{
             textAlign: "center",
-            marginBottom: "30px",
-            color: "orange"
+            marginBottom: "clamp(18px, 3vw, 30px)",
+            color: "orange",
+            fontSize: "clamp(28px, 5vw, 36px)"
           }}
         >
           Register

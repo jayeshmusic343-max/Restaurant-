@@ -10,6 +10,13 @@
   transition: 0.3s;
 }
 
+/* Ensure small screens don't overflow horizontally */
+.wishlist-container,
+.wishlist-card{
+  max-width: 100%;
+}
+
+
 /* DARK PAGE */
 
 .dark .wishlist-page{

@@ -98,23 +98,23 @@ function Orders({ darkMode }) {
     return <div style={{ padding: 40, color: textColor, backgroundColor: bgPageColor, minHeight: "100vh" }}><h2>No Orders Found</h2></div>;
 
   return (
-    <div style={{ padding: "40px 20px", backgroundColor: bgPageColor, color: textColor, minHeight: "100vh", transition: "all 0.3s ease" }}>
-      <h1 style={{ color: textColor, marginBottom: "20px" }}>Your Orders</h1>
+    <div style={{ padding: "clamp(16px, 4vw, 40px) clamp(10px, 3vw, 20px)", backgroundColor: bgPageColor, color: textColor, minHeight: "100vh", transition: "all 0.3s ease" }}>
+      <h1 style={{ color: textColor, marginBottom: "clamp(14px, 3vw, 20px)", fontSize: "clamp(22px, 5vw, 32px)" }}>Your Orders</h1>
       <div style={{ display: "grid", gap: 16, marginTop: 20 }}>
         {orders.map((o) => (
           <div key={o.id} style={{ padding: 20, borderRadius: 12, border: `1px solid ${borderCardColor}`, backgroundColor: bgCardColor, color: textColor, boxShadow: darkMode ? "none" : "0 4px 6px -1px rgb(0 0 0 / 0.05)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
               <strong style={{ color: textColor, fontSize: "16px" }}>Order #{o.id}</strong>
               <span style={{ color: textMutedColor, fontSize: "14px" }}>{new Date(o.created_at || o.created || o.date || Date.now()).toLocaleString()}</span>
             </div>
             
-            <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-              <div>
+            <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 10, flexWrap: "wrap" }}>
+              <div style={{ flex: "1 1 220px" }}>
                 <div style={{ fontSize: "18px", fontWeight: "600", color: textColor }}>Total: ₹{o.total_price}</div>
                 <div style={{ marginTop: 6, color: textMutedColor, fontSize: "14px" }}>
                   Status: {" "}
                   <span style={{ 
-                    fontWeight: "bold", 
+                    fontWeight: "bold",
                     color: o.status === "Delivered" ? "#10b981" : o.status === "Cancelled" ? "#ef4444" : "#f59e0b" 
                   }}>
                     {o.status || "Pending"}
@@ -124,7 +124,7 @@ function Orders({ darkMode }) {
 
               <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end" }}>
                 {o.status !== "Cancelled" && o.status !== "Delivered" && (
-                  <div style={{ display: "flex", gap: 8 }}>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
                     <button onClick={() => cancelOrder(o.id)} style={{ backgroundColor: "#ef4444", color: "white", border: "none", padding: "8px 14px", borderRadius: 6, cursor: "pointer", fontWeight: "500" }}>
                       Cancel Order
                     </button>
@@ -145,15 +145,15 @@ function Orders({ darkMode }) {
 
             {/* OTP बॉक्स */}
             {activeOrderId === o.id && (
-              <div style={{ marginTop: 16, padding: 12, background: darkMode ? "#1e293b" : "#f1f5f9", borderRadius: 8, border: `1px solid ${borderCardColor}` }}>
+              <div style={{ marginTop: 16, padding: 12, background: darkMode ? "#1e293b" : "#f1f5f9", borderRadius: 8, border: `1px solid ${borderCardColor}`, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
                 <input 
                   type="text" 
                   placeholder="Enter OTP" 
                   value={typedOtp}
                   onChange={(e) => setTypedOtp(e.target.value)}
-                  style={{ padding: "8px 12px", marginRight: 8, borderRadius: 6, border: "1px solid #cbd5e1", backgroundColor: darkMode ? "#334155" : "#ffffff", color: textColor }}
+                  style={{ padding: "8px 12px", borderRadius: 6, border: "1px solid #cbd5e1", backgroundColor: darkMode ? "#334155" : "#ffffff", color: textColor, flex: "1 1 160px", minWidth: 140, marginRight: 0 }}
                 />
-                <button onClick={() => handleVerifyOtp(o.id)} style={{ backgroundColor: "#10b981", color: "white", border: "none", padding: "8px 14px", borderRadius: 6, cursor: "pointer", fontWeight: "500" }}>
+                <button onClick={() => handleVerifyOtp(o.id)} style={{ backgroundColor: "#10b981", color: "white", border: "none", padding: "8px 14px", borderRadius: 6, cursor: "pointer", fontWeight: "500", flex: "0 0 auto" }}>
                   Submit & Complete Order
                 </button>
               </div>

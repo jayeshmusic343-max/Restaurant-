@@ -48,23 +48,25 @@ function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "#f5f5f5"
+        background: "#f5f5f5",
+        padding: 16
       }}
     >
       <form
         onSubmit={handleLogin}
         style={{
-          width: "400px",
+          width: "min(400px, 100%)",
           background: "white",
-          padding: "40px",
+          padding: "clamp(24px, 4vw, 40px)",
           borderRadius: "10px"
         }}
       >
         <h1
           style={{
             textAlign: "center",
-            marginBottom: "30px",
-            color: "orange"
+            marginBottom: "clamp(18px, 3vw, 30px)",
+            color: "orange",
+            fontSize: "clamp(28px, 5vw, 36px)"
           }}
         >
           Login
@@ -80,7 +82,8 @@ function Login() {
           style={{
             width: "100%",
             padding: "15px",
-            marginBottom: "20px"
+            marginBottom: "20px",
+            borderRadius: 8
           }}
         />
 
@@ -94,7 +97,8 @@ function Login() {
           style={{
             width: "100%",
             padding: "15px",
-            marginBottom: "20px"
+            marginBottom: "20px",
+            borderRadius: 8
           }}
         />
 
@@ -106,7 +110,8 @@ function Login() {
             background: "orange",
             color: "white",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            borderRadius: 8
           }}
         >
           Login

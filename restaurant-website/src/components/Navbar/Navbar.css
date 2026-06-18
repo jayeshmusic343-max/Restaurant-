@@ -472,103 +472,37 @@
 
 }
 
-/* SMALL MOBILE */
-
+/* SMALL MOBILE (500px) */
 @media (max-width: 500px){
-
-  .logo{
-    font-size: 28px;
-  }
-
-  .theme-btn{
-    width: 42px;
-    height: 42px;
-  }
-
-  .nav-right{
-    gap: 8px;
-  }
-
-  .location{
-    gap: 8px;
-  }
-
-  .location-text h3{
-    font-size: 12px;
-  }
-
-  .location-text p{
-    max-width: 90px;
-  }
-
+  .logo{ font-size: 28px; }
+  .theme-btn{ width: 42px; height: 42px; }
+  .nav-right{ gap: 8px; }
+  .location{ gap: 8px; }
+  .location-text h3{ font-size: 12px; }
+  .location-text p{ max-width: 90px; }
 }
 
 /* SMALL MOBILE (480px) */
 @media (max-width: 480px){
-  .navbar{
-    padding: 12px 10px;
-    gap: 12px;
-  }
-
-  .logo{
-    font-size: 24px;
-    letter-spacing: 0.5px;
-  }
-
-  .nav-left{
-    gap: 10px;
-  }
-
-  .location{
-    min-width: 0;
-    padding: 6px 10px;
-  }
-
-  .location-text h3{
-    font-size: 11px;
-  }
-
-  .location-text p{
-    max-width: 70px;
-    font-size: 11px;
-  }
-
-  .nav-search input{
-    height: 44px;
-    font-size: 14px;
-  }
-
-  .nav-btn,
-  .cart-btn{
-    padding: 9px 12px;
-    font-size: 13px;
-  }
+  .navbar{ padding: 12px 10px; gap: 12px; }
+  .logo{ font-size: 24px; letter-spacing: 0.5px; }
+  .nav-left{ gap: 10px; }
+  .location{ min-width: 0; padding: 6px 10px; }
+  .location-text h3{ font-size: 11px; }
+  .location-text p{ max-width: 70px; font-size: 11px; }
+  .nav-search input{ height: 44px; font-size: 14px; }
+  .nav-btn, .cart-btn{ padding: 9px 12px; font-size: 13px; }
 }
 
 /* EXTRA SMALL (320px) */
 @media (max-width: 320px){
-  .logo{
-    font-size: 20px;
-  }
-
-  .nav-right{
-    gap: 6px;
-  }
-
-  .nav-btn,
-  .cart-btn{
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-
-  .location{
-    padding: 6px 8px;
-  }
-
-  .location-text p{
-    max-width: 55px;
-  }
+  .logo{ font-size: 20px; }
+  .nav-right{ gap: 6px; }
+  .nav-btn, .cart-btn{ padding: 8px 10px; font-size: 12px; }
+  .location{ padding: 6px 8px; }
+  .location-text p{ max-width: 55px; }
 }
+
 
 /* USER NAME */
 
@@ -617,7 +551,7 @@
 
 /* MOBILE */
 
-@media (max-width: 768px){
+@media (max-width: 668px){
 
   .user-name{
     padding: 10px 14px;
@@ -629,4 +563,74 @@
     font-size: 14px;
   }
 
+}
+
+/* ===================================
+   FINAL MOBILE NAVBAR FIX
+=================================== */
+
+@media (max-width: 768px){
+
+  /* Hide desktop buttons */
+  .nav-right{
+    display: none;
+  }
+
+  /* Hide city selector */
+  .location-wrapper{
+    display: none;
+  }
+
+  .navbar{
+    min-height: auto;
+    padding: 12px 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav-left{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo{
+    font-size: 30px;
+  }
+
+  .nav-search{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav-search input{
+    height: 48px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .logo{
+    font-size: 26px;
+  }
+
+  .nav-search input{
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .search-icon{
+    left: 14px;
+  }
+}
+
+@media (max-width: 320px){
+
+  .logo{
+    font-size: 22px;
+  }
+
+  .nav-search input{
+    font-size: 12px;
+  }
 }

@@ -31,25 +31,25 @@ function AdminDashboard() {
 
   return (
 
-    <div style={{ padding: "30px" }}>
+    <div style={{ padding: "clamp(16px, 3.5vw, 30px)" }}>
 
-      <h1>Admin Dashboard</h1>
+      <h1 style={{ fontSize: "clamp(22px, 5vw, 32px)" }}>Admin Dashboard</h1>
 
       <hr />
 
-      <h2>
+      <h2 style={{ fontSize: "clamp(16px, 4vw, 22px)" }}>
         👥 Users : {stats.totalUsers}
       </h2>
 
-      <h2>
+      <h2 style={{ fontSize: "clamp(16px, 4vw, 22px)" }}>
         📦 Products : {stats.totalProducts}
       </h2>
 
-      <h2>
+      <h2 style={{ fontSize: "clamp(16px, 4vw, 22px)" }}>
         🛒 Orders : {stats.totalOrders}
       </h2>
 
-      <h2>
+      <h2 style={{ fontSize: "clamp(16px, 4vw, 22px)" }}>
         💰 Revenue : ₹{stats.revenue}
       </h2>
 
