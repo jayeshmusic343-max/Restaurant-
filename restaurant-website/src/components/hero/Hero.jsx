@@ -3,23 +3,14 @@ import "./Hero.css";
 function Hero() {
   return (
     <section className="hero">
-
       {/* LEFT */}
       <div className="hero-left">
-        <h1>
-          Fresh Food Delivered In 15 Minutes
-        </h1>
-
+        <h1>Fresh Food Delivered In 15 Minutes</h1>
         <p>
-          Get groceries, snacks, beverages and meals
+          Get groceries, snacks, beverages and meals 
           delivered instantly at your doorstep.
         </p>
-
-        {/* हमने यहाँ से वो नीचे वाला फालतू सर्च बॉक्स हटा दिया है */}
-
-        <button>
-          Shop Now
-        </button>
+        <button className="hero-btn">Shop Now</button>
       </div>
 
       {/* RIGHT */}
@@ -29,7 +20,6 @@ function Hero() {
           alt="food"
         />
       </div>
-
     </section>
   );
 }
