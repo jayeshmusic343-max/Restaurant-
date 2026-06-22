@@ -1,6 +1,7 @@
 import "./BestSeller.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import foodData from "../../data/foodData"; // Import added
 import ProductModal from "../ProductModal/ProductModal";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 
@@ -8,7 +9,8 @@ function BestSeller({
   wishlist = [],
   toggleWishlist,
   addToCart,
-  searchQuery = ""
+  searchQuery = "",
+  selectedCategory = "" // New prop added
 }) {
   const navigate = useNavigate();
 
@@ -18,13 +20,9 @@ function BestSeller({
     });
   };
 
-  // Modal State
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  // Loading State
   const [loading, setLoading] = useState(true);
 
-  // Fake Loading Effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -33,40 +31,19 @@ function BestSeller({
     return () => clearTimeout(timer);
   }, []);
 
-  // फूड आइटम्स की लिस्ट
-  const products = [
-    {
-      id: 1,
-      name: "Cheese Pizza",
-      price: 299,
-      rating: "4.5",
-      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop",
-    },
-    {
-      id: 2,
-      name: "Burger Combo",
-      price: 249,
-      rating: "4.3",
-      image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop",
-    },
-    {
-      id: 3,
-      name: "Cold Drink",
-      price: 99,
-      rating: "4.7",
-      image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&auto=format&fit=crop",
-    },
-  ];
-
-  // सर्च क्वेरी के हिसाब से प्रोडक्ट्स को फ़िल्टर करने का लॉजिक
-  const filteredProducts = products.filter((item) => {
-    if (!searchQuery) return true;
-    return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+  // Updated filter logic
+  const filteredProducts = foodData.filter((item) => {
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === "" || item.category === selectedCategory;
+    return matchesSearch && matchesCategory;
   });
 
   return (
     <>
-      <section className="best-seller">
+      <section
+        className="best-seller"
+        id="best-seller-section"
+      >
         <div className="section-title">
           <h2>Best Sellers</h2>
           <button>View All</button>
@@ -79,7 +56,6 @@ function BestSeller({
             ))
           ) : filteredProducts.length > 0 ? (
             filteredProducts.map((item) => {
-              // चेक करें कि आइटम विशलिस्ट में है या नहीं
               const isWishlisted = wishlist.some((product) => product.id === item.id);
 
               return (
@@ -126,7 +102,6 @@ function BestSeller({
                       </button>
                     </div>
                   </div>
-
                 </div>
               );
             })
@@ -138,7 +113,6 @@ function BestSeller({
         </div>
       </section>
 
-      {/* Product Modal */}
       <ProductModal
         product={selectedProduct}
         closeModal={() => setSelectedProduct(null)}

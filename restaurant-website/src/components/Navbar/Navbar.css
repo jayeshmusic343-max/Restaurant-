@@ -1,4 +1,4 @@
-/* RESET */
+RESET
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: sans-serif; transition: background 0.3s; }
 
@@ -78,6 +78,31 @@ body { font-family: sans-serif; transition: background 0.3s; }
 .location-dropdown p:hover { background-color: #f3f4f6; color: orange; }
 .dark .location-dropdown p:hover { background-color: #333 !important; color: orange !important; }
 
+.nav-search {
+  position: relative;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: #f8f8f8;
+}
+
 @keyframes dropdown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -93,4 +118,37 @@ body { font-family: sans-serif; transition: background 0.3s; }
   .logo { font-size: 24px; }
   .location { min-width: 150px; }
   .nav-btn, .cart-btn { font-size: 14px; padding: 8px 12px; }
+}
+
+
+
+.nav-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  margin-top: 2px;
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+}
+
+.suggestion-item:hover {
+  background-color: #f3f3f3;
+  color: #ff9900; /* Amazon theme color */
 }
