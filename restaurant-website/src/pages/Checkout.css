@@ -221,3 +221,54 @@
   }
 }
 
+/* ==========================
+   DARK MODE
+========================== */
+
+.dark .checkout{
+  background:#121212;
+}
+
+.dark .checkout-left,
+.dark .checkout-right{
+  background:#1f1f1f;
+  color:#fff;
+}
+
+.dark .checkout-left h2,
+.dark .checkout-right h2,
+.dark .summary-item h4,
+.dark .summary-item p,
+.dark .total h3,
+.dark .payment label{
+  color:#fff;
+}
+
+.dark .checkout-left input,
+.dark .checkout-left textarea{
+  background:#2b2b2b;
+  color:#fff;
+  border:1px solid #444;
+}
+
+.dark .checkout-left input::placeholder,
+.dark .checkout-left textarea::placeholder{
+  color:#bdbdbd;
+}
+
+.dark .summary-item{
+  border-bottom:1px solid #444;
+}
+
+.dark .total{
+  border-top:1px solid #444;
+  padding-top:15px;
+}
+
+.dark .checkout-right button{
+  background:#16a34a;
+}
+
+.dark .checkout-right button:hover{
+  background:#15803d;
+} 

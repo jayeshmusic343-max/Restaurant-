@@ -1,10 +1,10 @@
 import "./ProductDetails.css";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // 👈 useNavigate इम्पोर्ट किया
+import { useLocation, useNavigate } from "react-router-dom";
 
 function ProductDetails({ darkMode, addToCart }) {
   const location = useLocation();
-  const navigate = useNavigate(); // 👈 navigate हुक इनिशियलाइज़ किया
+  const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
 
   const defaultProduct = {
@@ -19,20 +19,31 @@ function ProductDetails({ darkMode, addToCart }) {
 
   const product = location.state?.product || defaultProduct;
 
-  // 🛒 जब यूजर "Add To Cart" बटन दबाए
+  // --- बदलाव: ऐड टू कार्ट पर लॉगिन चेक ---
   const handleAddToCart = () => {
-    // प्रोडक्ट के डेटा के साथ चुनी हुई क्वांटिटी (quantity) को भी कार्ट में भेजेंगे
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+      navigate("/auth");
+      return;
+    }
+
     const productWithQty = { ...product, quantity };
     addToCart(productWithQty);
   };
 
-  // ⚡ जब यूजर "Buy Now" बटन दबाए
+  // --- बदलाव: बाय नाऊ पर लॉगिन चेक ---
   const handleBuyNow = () => {
-    // 1. पहले प्रोडक्ट को सही क्वांटिटी के साथ कार्ट में ऐड करेंगे
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+      navigate("/auth");
+      return;
+    }
+
     const productWithQty = { ...product, quantity };
     addToCart(productWithQty);
 
-    // 2. फिर यूजर को सीधे चेकआउट पेज पर भेज देंगे
     navigate("/checkout");
   };
 
@@ -40,13 +51,11 @@ function ProductDetails({ darkMode, addToCart }) {
     <div className={`product-details ${darkMode ? "dark" : "light"}`}>
       {/* LEFT - PRODUCT IMAGE */}
       <div className="details-left">
-        {/* 👈 अब यहाँ स्टेटिक इमेज नहीं, बल्कि क्लिक किए गए प्रोडक्ट की इमेज दिखेगी */}
         <img src={product.image} alt={product.name} />
       </div>
 
       {/* RIGHT - PRODUCT INFO */}
       <div className="details-right">
-        {/* 👈 अब यहाँ डायनामिक नाम दिखेगा */}
         <h1>{product.name}</h1>
 
         {/* RATING */}
@@ -66,20 +75,16 @@ function ProductDetails({ darkMode, addToCart }) {
           <button onClick={() => quantity > 1 && setQuantity(quantity - 1)}>
             -
           </button>
-
           <span>{quantity}</span>
-
           <button onClick={() => setQuantity(quantity + 1)}>+</button>
         </div>
 
         {/* BUTTONS */}
         <div className="details-buttons">
-          {/* 👈 यहाँ फंक्शन अटैच कर दिया जो आइटम को कार्ट में जोड़ देगा */}
           <button className="cart-btn" onClick={handleAddToCart}>
             Add To Cart
           </button>
 
-          {/* 👈 यहाँ alert हटाकर handleBuyNow फंक्शन लगा दिया है */}
           <button className="buy-btn" onClick={handleBuyNow}>
             Buy Now
           </button>

@@ -10,7 +10,7 @@ function BestSeller({
   toggleWishlist,
   addToCart,
   searchQuery = "",
-  selectedCategory = "" // New prop added
+  selectedCategory = "", // New prop added
 }) {
   const navigate = useNavigate();
 
@@ -33,17 +33,17 @@ function BestSeller({
 
   // Updated filter logic
   const filteredProducts = foodData.filter((item) => {
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "" || item.category === selectedCategory;
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "" || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
   return (
     <>
-      <section
-        className="best-seller"
-        id="best-seller-section"
-      >
+      <section className="best-seller" id="best-seller-section">
         <div className="section-title">
           <h2>Best Sellers</h2>
           <button>View All</button>
@@ -51,12 +51,12 @@ function BestSeller({
 
         <div className="product-container">
           {loading ? (
-            [...Array(3)].map((_, index) => (
-              <SkeletonCard key={index} />
-            ))
+            [...Array(3)].map((_, index) => <SkeletonCard key={index} />)
           ) : filteredProducts.length > 0 ? (
             filteredProducts.map((item) => {
-              const isWishlisted = wishlist.some((product) => product.id === item.id);
+              const isWishlisted = wishlist.some(
+                (product) => product.id === item.id,
+              );
 
               return (
                 <div
@@ -71,7 +71,10 @@ function BestSeller({
                       e.stopPropagation();
                       toggleWishlist(item);
                     }}
-                    style={{ color: isWishlisted ? "red" : "#6b7280", zIndex: 10 }}
+                    style={{
+                      color: isWishlisted ? "red" : "#6b7280",
+                      zIndex: 10,
+                    }}
                   >
                     {isWishlisted ? "❤️" : "🤍"}
                   </button>
@@ -98,7 +101,8 @@ function BestSeller({
                           addToCart(item);
                         }}
                       >
-                        Add To Cart
+                        {/* Add To Cart */}
+                        Add
                       </button>
                     </div>
                   </div>
@@ -106,7 +110,15 @@ function BestSeller({
               );
             })
           ) : (
-            <div style={{ textAlign: "center", width: "100%", padding: "40px", fontSize: "18px", color: "#888" }}>
+            <div
+              style={{
+                textAlign: "center",
+                width: "100%",
+                padding: "40px",
+                fontSize: "18px",
+                color: "#888",
+              }}
+            >
               😞 No foods found matching "{searchQuery}"
             </div>
           )}

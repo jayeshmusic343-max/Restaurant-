@@ -31,7 +31,7 @@ price: 299,
 rating: "4.5",
 image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop",
 },
-
+// {
 // id: 5,
 // name: "Cheese Pizza",
 // category: "Fast Food",
@@ -55,14 +55,7 @@ price: 249,
 rating: "4.4",
 image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop",
 },
-{
-id: 8,
-name: "White Sauce Pasta",
-category: "Italian",
-price: 279,
-rating: "4.7",
-image: "https://images.unsplash.com/photo-1645112411341-6c4fd023882c?w=500&auto=format&fit=crop",
-},
+
 {
 id: 9,
 name: "Red Sauce Pasta",
@@ -239,6 +232,328 @@ price: 179,
 rating: "4.9",
 image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop",
 },
+
+  {
+    id: 32,
+    name: "Dal Makhani",
+    category: "Indian",
+    price: 250,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&auto=format&fit=crop&sig=32",
+  },
+  {
+    id: 33,
+    name: "Veg Manchurian",
+    category: "Chinese",
+    price: 210,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&auto=format&fit=crop&sig=42",
+  },
+  {
+    id: 34,
+    name: "Butter Naan",
+    category: "Indian",
+    price: 60,
+    rating: "4.8",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&sig=34",
+  },
+ 
+
+  {
+    id: 41,
+    name: "Gulab Jamun",
+    category: "Dessert",
+    price: 120,
+    rating: "4.9",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&sig=41",
+  },
+  {
+    id: 42,
+    name: "Veg Fried Rice",
+    category: "Chinese",
+    price: 230,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&auto=format&fit=crop&sig=42",
+  },
+  {
+    id: 43,
+    name: "Pancake",
+    category: "Breakfast",
+    price: 200,
+    rating: "4.7",
+    image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=500&auto=format&fit=crop&sig=43",
+  },
+  {
+    id: 44,
+    name: "Waffles",
+    category: "Breakfast",
+    price: 250,
+    rating: "4.8",
+    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=500&auto=format&fit=crop&sig=44",
+  },
+  {
+    id: 45,
+    name: "Samosa",
+    category: "Snacks",
+    price: 40,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&sig=45",
+  },
+
+
+  {
+    id: 48,
+    name: "Masala Tea",
+    category: "Drinks",
+    price: 50,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=500&auto=format&fit=crop&sig=48",
+  },
+  {
+    id: 49,
+    name: "Donut",
+    category: "Dessert",
+    price: 90,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&sig=49",
+  },
+  {
+    id: 50,
+    name: "Chicken Soup",
+    category: "Healthy",
+    price: 180,
+    rating: "4.3",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&auto=format&fit=crop&sig=50",
+  },
+  {
+    id: 51,
+    name: "Veggie Burger",
+    category: "Fast Food",
+    price: 170,
+    rating: "4.4",
+    image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format&fit=crop&sig=51",
+  },
+
+
+
+  {
+    id: 55,
+    name: "Greek Salad",
+    category: "Healthy",
+    price: 240,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop&sig=55",
+  },
+  {
+    id: 56,
+    name: "Egg Curry",
+    category: "Indian",
+    price: 220,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=500&auto=format&fit=crop&sig=56",
+  },
+
+
+ 
+ 
+  {
+    id: 63,
+    name: "Chocolate Mousse",
+    category: "Dessert",
+    price: 180,
+    rating: "4.8",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&sig=63",
+  },
+  {
+    id: 64,
+    name: "Chicken Nuggets",
+    category: "Fast Food",
+    price: 200,
+    rating: "4.4",
+    image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=500&auto=format&fit=crop&sig=64",
+  },
+  {
+    id: 65,
+    name: "Strawberry Shake",
+    category: "Drinks",
+    price: 190,
+    rating: "4.7",
+    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&sig=65",
+  },
+  {
+    id: 66,
+    name: "Paneer Butter Masala",
+    category: "Indian",
+    price: 320,
+    rating: "4.9",
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&auto=format&fit=crop&sig=66",
+  },
+  {
+    id: 67,
+    name: "Veg Cutlet",
+    category: "Snacks",
+    price: 110,
+    rating: "4.4",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&sig=67",
+  },
+  {
+    id: 68,
+    name: "Cold Pasta Salad",
+    category: "Healthy",
+    price: 210,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=500&auto=format&fit=crop&sig=68",
+  },
+
+  {
+    id: 70,
+    name: "Vanilla Shake",
+    category: "Drinks",
+    price: 160,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&auto=format&fit=crop&sig=70",
+  },
+
+  {
+    id: 72,
+    name: "Tandoori Chicken",
+    category: "Indian",
+    price: 350,
+    rating: "4.8",
+  image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=500&auto=format&fit=crop&sig=72",
+  },
+
+  {
+    id: 74,
+    name: "Sweet Corn Soup",
+    category: "Healthy",
+    price: 150,
+    rating: "4.4",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&auto=format&fit=crop&sig=74",
+  },
+
+  {
+    id: 76,
+    name: "Green Salad",
+    category: "Healthy",
+    price: 120,
+    rating: "4.3",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop&sig=76",
+  },
+  {
+    id: 77,
+    name: "Peppermint Tea",
+    category: "Drinks",
+    price: 80,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=500&auto=format&fit=crop&sig=77",
+  },
+  {
+    id: 78,
+    name: "Cheese Nuggets",
+    category: "Fast Food",
+    price: 180,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=500&auto=format&fit=crop&sig=78",
+  },
+ 
+  {
+    id: 80,
+    name: "Brownie Sundae",
+    category: "Dessert",
+    price: 250,
+    rating: "4.9",
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&sig=80",
+  },
+ 
+  {
+    id: 82,
+    name: "Iced Coffee",
+    category: "Drinks",
+    price: 170,
+    rating: "4.7",
+    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format&fit=crop&sig=82",
+  },
+
+  {
+    id: 84,
+    name: "Tomato Soup",
+    category: "Healthy",
+    price: 140,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&auto=format&fit=crop&sig=84",
+  },
+
+  {
+    id: 86,
+    name: "Paneer Pakora",
+    category: "Snacks",
+    price: 140,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&sig=86",
+  },
+  {
+    id: 89,
+    name: "Mutton Biryani",
+    category: "Indian",
+    price: 450,
+    rating: "4.9",
+    image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=500&auto=format&fit=crop&sig=89",
+  },
+  {
+    id: 90,
+    name: "Fruit Tart",
+    category: "Dessert",
+    price: 160,
+    rating: "4.7",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&sig=90",
+  },
+  {
+    id: 91,
+    name: "Veggie Pizza",
+    category: "Fast Food",
+    price: 300,
+    rating: "4.6",
+    image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=500&auto=format&fit=crop&sig=91",
+  },
+  {
+    id: 92,
+    name: "Masala Chai",
+    category: "Drinks",
+    price: 40,
+    rating: "4.8",
+    image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=500&auto=format&fit=crop&sig=92",
+  },
+  {
+    id: 93,
+    name: "Chicken Soup",
+    category: "Healthy",
+    price: 190,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&auto=format&fit=crop&sig=93",
+  },
+  {
+    id: 98,
+    name: "Ice Cream Cone",
+    category: "Dessert",
+    price: 60,
+    rating: "4.5",
+    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop&sig=98",
+  },
+ 
+  {
+    id: 100,
+    name: "Special Combo",
+    category: "Fast Food",
+    price: 499,
+    rating: "5.0",
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&sig=100",
+  },
+
+  // ... (Ab tum 61 se 100 tak ka pattern follow kar sakte ho)
 ];
 
 export default foodData;
+
+
+

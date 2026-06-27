@@ -47,16 +47,22 @@ function Checkout({ cart, setCart }) {
     }
 
     try {
+      setLoading(true); // बटन को डिसेबल करने के लिए loading true किया
       const user = JSON.parse(savedUser);
 
+      // एपीआई पर ऑर्डर डेटा भेजना
       await API.post("/orders/place", {
         user_id: user.id,
         cart,
         total_price: totalPrice,
+        delivery_details: { fullName, phone, city, address },
+        payment_method: paymentMethod,
       });
 
+      // --- बदलाव: यूजर-स्पेसिफिक cartKey बनाकर उसे लोकल स्टोरेज में खाली करना ---
+      const cartKey = `cart_${user.id}`;
       setCart([]);
-      localStorage.setItem("cart", JSON.stringify([]));
+      localStorage.setItem(cartKey, JSON.stringify([]));
 
       toast.success("Order placed successfully 🎉");
       navigate("/");
@@ -64,8 +70,10 @@ function Checkout({ cart, setCart }) {
       console.error(error);
       toast.error(
         error.response?.data?.message ||
-          "Failed to place order. Please try again."
+          "Failed to place order. Please try again.",
       );
+    } finally {
+      setLoading(false); // काम पूरा होने के बाद loading वापस false
     }
   };
 
@@ -74,7 +82,7 @@ function Checkout({ cart, setCart }) {
       <div className="checkout-left">
         <h2>Delivery Address</h2>
 
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
             placeholder="Full Name"
@@ -83,10 +91,14 @@ function Checkout({ cart, setCart }) {
           />
 
           <input
-            type="text"
+            type="tel"
             placeholder="Phone Number"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            maxLength={10}
+            onChange={(e) => {
+              const value = e.target.value.replace(/\D/g, ""); // Sirf numbers
+              setPhone(value);
+            }}
           />
 
           <input
@@ -153,9 +165,7 @@ function Checkout({ cart, setCart }) {
               </p>
             </div>
 
-            <h4>
-              ₹{getPrice(item.price) * getQuantity(item.quantity)}
-            </h4>
+            <h4>₹{getPrice(item.price) * getQuantity(item.quantity)}</h4>
           </div>
         ))}
 

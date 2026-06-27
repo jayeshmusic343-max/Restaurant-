@@ -115,4 +115,45 @@ font-size: clamp(20px, 3.6vw, 28px);
   }
 }
 
+/* ==========================
+   DARK MODE
+========================== */
 
+.dark .food-card{
+  background:#1f2937;
+  box-shadow:0 5px 15px rgba(0,0,0,.35);
+}
+
+.dark .food-card h2{
+  color:#ffffff;
+}
+
+.dark .food-card p{
+  color:#fbbf24;
+}
+
+.dark .food-card button{
+  background:#f59e0b;
+  color:#fff;
+}
+
+.dark .food-card button:hover{
+  background:#d97706;
+}
+
+
+/* ==========================
+   LIGHT MODE
+========================== */
+
+.light .food-card{
+  background:#f5f5f5;
+}
+
+.light .food-card h2{
+  color:#111827;
+}
+
+.light .food-card p{
+  color:orange;
+}

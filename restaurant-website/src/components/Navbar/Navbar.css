@@ -1,4 +1,4 @@
-RESET
+/* === RESET === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: sans-serif; transition: background 0.3s; }
 
@@ -40,11 +40,45 @@ body { font-family: sans-serif; transition: background 0.3s; }
 .dark .location-text p { color: #cbd5e1 !important; }
 
 /* SEARCH */
-.nav-search { flex: 1; max-width: 650px; position: relative; }
+.nav-search { flex: 1; max-width: 650px; position: relative; display: flex; align-items: center; }
 .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 17px; color: gray; }
 .nav-search input { width: 100%; height: 54px; padding: 0 18px 0 48px; border: 1px solid #ddd; border-radius: 16px; background-color: #f8fafc; font-size: 16px; outline: none; transition: 0.3s; }
 .nav-search input:focus { border-color: orange; }
 .dark .nav-search input { background-color: #2a2a2a !important; border: 1px solid #444 !important; color: white !important; }
+
+/* SEARCH SUGGESTIONS */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 5px;
+  overflow: hidden;
+}
+.dark .search-suggestions { background-color: #2a2a2a !important; border: 1px solid #444 !important; }
+
+.suggestion-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #333;
+  font-size: 15px;
+  transition: 0.2s;
+}
+.dark .suggestion-item { color: #eee !important; }
+
+.suggestion-item:hover {
+  background-color: #f3f3f3;
+  color: #ff9900;
+}
+.dark .suggestion-item:hover {
+  background-color: #333 !important;
+  color: #ff9900 !important;
+}
 
 /* RIGHT SIDE */
 .nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
@@ -53,10 +87,41 @@ body { font-family: sans-serif; transition: background 0.3s; }
 .dark .nav-btn:hover { background-color: #333 !important; }
 
 .cart-btn { text-decoration: none; background-color: #16a34a; color: white; padding: 13px 22px; border-radius: 16px; font-weight: 700; transition: 0.3s; }
-.theme-btn { width: 48px; height: 48px; border: none; border-radius: 50%; background-color: #0f172a; color: white; cursor: pointer; transition: 0.3s; }
+.theme-btn { width: 48px; height: 48px; border: none; border-radius: 50%; background-color: #0f172a; color: white; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
 .theme-btn:hover { transform: rotate(180deg); }
 .logout-btn { background-color: red; padding: 10px; border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; }
-.dark .user-name { color: white !important; }
+
+/* === USER NAME STYLING & BLUE UNDERLINE FIX === */
+.user-name,
+.user-name:link,
+.user-name:visited {
+  text-decoration: none !important;
+  color: #111827 !important;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.user-name:hover {
+  color: orange !important;
+  background: rgba(255, 165, 0, 0.1);
+}
+
+.dark .user-name,
+.dark .user-name:link,
+.dark .user-name:visited {
+  color: #fff !important;
+}
+
+.dark .user-name:hover {
+  color: orange !important;
+  background: #333 !important;
+}
 
 /* DROPDOWN - FIXED */
 .location-dropdown { 
@@ -78,31 +143,6 @@ body { font-family: sans-serif; transition: background 0.3s; }
 .location-dropdown p:hover { background-color: #f3f4f6; color: orange; }
 .dark .location-dropdown p:hover { background-color: #333 !important; color: orange !important; }
 
-.nav-search {
-  position: relative;
-}
-
-.search-suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.suggestion-item {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestion-item:hover {
-  background: #f8f8f8;
-}
-
 @keyframes dropdown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -118,37 +158,4 @@ body { font-family: sans-serif; transition: background 0.3s; }
   .logo { font-size: 24px; }
   .location { min-width: 150px; }
   .nav-btn, .cart-btn { font-size: 14px; padding: 8px 12px; }
-}
-
-
-
-.nav-search {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 0 0 5px 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 1000;
-  margin-top: 2px;
-}
-
-.suggestion-item {
-  padding: 10px 15px;
-  cursor: pointer;
-  color: #333;
-  font-size: 14px;
-}
-
-.suggestion-item:hover {
-  background-color: #f3f3f3;
-  color: #ff9900; /* Amazon theme color */
 }
